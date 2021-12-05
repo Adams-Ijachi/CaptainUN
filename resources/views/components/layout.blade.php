@@ -131,6 +131,8 @@
     <!--**********************************
         Scripts
     ***********************************-->
+
+    @livewireScripts
     
     <script src="{{ secure_asset('plugins/common/common.min.js') }}"></script>
     <script src="{{ secure_asset('js/custom.min.js') }}"></script>
