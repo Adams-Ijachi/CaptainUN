@@ -8,7 +8,7 @@
     <title>{{ $title }}</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ secure_asset('images/favicon.png') }}">
-    <link href="{{ secure_secure_asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
 
     <!-- Custom Stylesheet -->
 
