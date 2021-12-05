@@ -24,7 +24,7 @@ class UserFactory extends Factory
             'password' => 'password', // password
             'remember_token' => Str::random(10),
             'user_type' => $this->faker->numberBetween(0,2),
-            // toggle between true and false is_approved true or false
+            
             
 
             'is_approved' =>   $this->faker->numberBetween(0,1),
