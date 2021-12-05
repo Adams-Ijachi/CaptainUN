@@ -59,7 +59,7 @@
             </x-card.card>
             
             
-            {{ $cap->id }}
+          
 
             <livewire:goals :cap="$cap" />
 

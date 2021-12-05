@@ -62,7 +62,7 @@
                                     </div>
                                     <button type="submit" class="btn login-form__btn submit w-100">Sign Up</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">You have account? <a href="{{  route('login') }}" class="text-primary">Sign Ip</a> now</p>
+                                <p class="mt-5 login-form__footer">You have account? <a href="{{  route('login') }}" class="text-primary">Sign In</a> now</p>
                             </div>
                         </div>
                     </div>
