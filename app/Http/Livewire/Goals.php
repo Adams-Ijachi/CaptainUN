@@ -6,10 +6,11 @@ use Livewire\Component;
 use Livewire\WithPagination;
 
 use App\Models\Goal;
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Validator;
+
 
 use Auth;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 
 class Goals extends Component
 {
@@ -31,7 +32,7 @@ class Goals extends Component
         return [
             'editing.name' => 'required|min:3',
             'editing.description' => 'required|string',
-            'editing.is_approved' => 'requied|boolean',
+            'editing.is_approved' => 'required|boolean',
             
         ];
     }
