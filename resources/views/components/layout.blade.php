@@ -8,14 +8,11 @@
     <title>{{ $title }}</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
+    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+
     <!-- Custom Stylesheet -->
 
-    @production
-    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ secure_asset('images/favicon.png') }}">
-    @livewireStyles
-
-    @endproduction
+ 
 
     {{ $styles ?? '' }}
     @livewireStyles
@@ -134,18 +131,7 @@
     <!--**********************************
         Scripts
     ***********************************-->
-    @production
-   
-    <script src="{{ secure_asset('plugins/common/common.min.js') }}"></script>
-    <script src="{{ secure_asset('js/custom.min.js') }}"></script>
-    <script src="{{ secure_asset('js/settings.js') }}"></script>
-    <script src="{{ secure_asset('js/gleek.js') }}"></script>
-    <script src="{{ secure_asset('js/styleSwitcher.js') }}"></script>
-
-
     
-    {{ $scripts ?? '' }}
-    @endproduction
     <script src="{{ asset('plugins/common/common.min.js') }}"></script>
     <script src="{{ asset('js/custom.min.js') }}"></script>
     <script src="{{ asset('js/settings.js') }}"></script>
