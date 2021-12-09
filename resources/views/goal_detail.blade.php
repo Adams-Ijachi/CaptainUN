@@ -9,7 +9,7 @@
                 <div class="col">
                     <div class="card mt-5">
                         <div class="card-header">
-                            <h3 class="card-title">goal Details</h3>
+                            <h3 class="card-title">Goal Details</h3>
                         </div>
                         <div class="card-body">
                             <h1>
@@ -52,13 +52,7 @@
                     </h2>
 
                    
-                    <livewire:table :table_headers="['Title','Description','Created At']" :model="$goal" :model_type="'update'" />
-
-
-                    
-                    
-                    
-
+                    <livewire:table-goal :table_headers="['Title','Description','Created At']" :model="$goal"  />
 
 
                 </div>

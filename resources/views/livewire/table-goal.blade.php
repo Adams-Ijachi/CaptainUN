@@ -1,7 +1,7 @@
 <div class=" mb-2 " wire:init="loadPosts">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Caps Goals</h4>
+                                <h4 class="card-title">Goals Update</h4>
                                 <div class="table-responsive">
                                     <table class="table header-border table-hover verticle-middle">
                                         <thead>
@@ -15,23 +15,7 @@
                                         </thead>
                                         <tbody>
                                 
-                                        @if($model_type == 'goal')
-                                            @foreach($models as $index => $data)
-
-                                            <tr>
-                                            <td> 
-                                                {{ $index + 1 }}
-                                            </td>
-                                            <td>
-                                            
-                                              <a href="{{ route('getGoal',['goal'=>$data->id]) }}" >  {{ $data->name }} </a>
-                                            </td>
-                                            <td>{{ $data->description }}</td>
-                                            <td><span class="label gradient-1 btn-rounded">{{ $data->rating }}%</span>
-                                            </tr>
-                                            @endforeach
-                                        @elseif($model_type == 'update')
-                                        @foreach($models as $index => $update)
+                                        @forelse($models as $index => $update)
                                          <tr>
                                             <td> 
                                                 {{ $index + 1 }}
@@ -45,15 +29,22 @@
                                             
                                             <td>{{ $update->date_for_humans }}</td>
                                             </tr>
-                                        @endforeach
-                                        @endif
+                                        @empty
+                                        <tr class="text-center h2">
+                                            <td colspan="4">No data</td>
+                                        </tr>
+                                        @endforelse
+                                  
                                                 
                                         </tbody>
                                     </table>
                                 </div>
+
+                                @if($models)
                                 <div class="d-flex flex-row-reverse mr-4 p-3">
                                     {{ $models->links() }}
                                 </div>
+                                @endif
                             </div>
                         </div>
 

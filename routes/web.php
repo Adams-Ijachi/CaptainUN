@@ -26,6 +26,8 @@ use App\Http\Controllers\HOME\HomeController;
 Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/search', [HomeController::class,'search'])->name('search');
 Route::get('/cap/{cap}', [HomeController::class,'getCap'])->name('getCap');
+Route::get('/goal/{goal}', [HomeController::class,'getGoal'])->name('getGoal');
+
 
 
 

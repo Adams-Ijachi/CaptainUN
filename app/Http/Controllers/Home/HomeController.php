@@ -41,5 +41,11 @@ class HomeController extends Controller
         
         return view('cap_detail' , compact('cap'));
     }
+
+    // getGoal
+    public function getGoal(Goal $goal)
+    {
+        return view('goal_detail' , compact('goal'));
+    }
    
 }

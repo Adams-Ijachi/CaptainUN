@@ -20,6 +20,7 @@ class Table extends Component
 
     public $table_headers;
     public Cap $model;
+
     public $model_type ;
 
 
@@ -37,30 +38,39 @@ class Table extends Component
 
     public function render()
     {
+      
         
         if($this->model_type=='goal'){
-            $return = Goal::where('cap_id', $this->model->id)->orderByDesc('created_at')->paginate(2,['*'], 'goal'); 
+            $return = Goal::where('cap_id', $this->model->id)->orderByDesc('created_at')->paginate(10,['*'], 'goal'); 
         }elseif($this->model_type=='update'){
               $return = Update::whereHasMorph('updatable', Cap::class, function (Builder $query) {
                 $query->where('id', $this->model->id);
-            })->orderByDesc('created_at')->paginate(2,['*'], 'update'); 
+            })->orderByDesc('created_at')->paginate(10,['*'], 'update'); 
             Debugbar::info($return);
            
         }
 
         return view('livewire.table', [
             'table_headers' => $this->readyToLoad ?  $this->table_headers : [],
-            'models' => $return ,
+            'models' => $this->readyToLoad ? $return : [],
         ]);
     }
 
     
 
-    public function mount($table_headers,$model,$model_type)
+    public function mount($table_headers,$model,$model_type,$model_name=NULL)
     {
         # code...
         $this->table_headers = $table_headers;
-        $this->model = $model;
+        if($model_name=='goal'){
+            $this->goal = $model;
+        }
+        else{
+            $this->model = $model;
+
+        }
+      
+        
         $this->model_type = $model_type;
 
 

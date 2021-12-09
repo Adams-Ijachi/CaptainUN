@@ -7,6 +7,16 @@
            
             <div class="coment-bottom bg-white p-2 px-4">
 
+                <h2>
+                    Comments
+                </h2>
+                @unless(Auth::user())
+                    <div class="alert alert-danger">
+                        <p>
+                            You must be logged in to comment.
+                        </p>
+                    </div>
+                @endunless
               
                 <div class="d-flex flex-row add-comment-section mt-4 mb-4">
 
@@ -23,7 +33,7 @@
             <div>
         
 
-                @error('editing.comment') <span class="error text-danger">{{ $message }}</span> @enderror
+                @error('editing.comment') <span class="alert alert-danger">{{ $message }}</span> @enderror
 
 
 
