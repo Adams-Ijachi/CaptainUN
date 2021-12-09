@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AUTH\AuthController;
 
 use App\Http\Controllers\ADMIN\AdminController;
+use App\Http\Controllers\HOME\HomeController;
+
 
 
 
@@ -21,9 +23,11 @@ use App\Http\Controllers\ADMIN\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [HomeController::class,'index'])->name('home');
+Route::get('/search', [HomeController::class,'search'])->name('search');
+Route::get('/cap/{cap}', [HomeController::class,'getCap'])->name('getCap');
+
+
 
 // Route::group(['prefix' => ''], function () {
 //     Voyager::routes();
@@ -43,7 +47,6 @@ Route::get('/register', function () {
 
 Route::post('/login', [AuthController::class,'login'])->name('login.post');
 Route::post('/register', [AuthController::class,'register'])->name('register.post');
-
 Route::get('/logout', [AuthController::class,'logout'])->name('logout');
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin_or_undp']], function(){

@@ -45,4 +45,6 @@ class Comments extends Component
         // session()->flash('message', 'Comment status updated successfully');
 
     }
+
+ 
 }

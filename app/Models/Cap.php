@@ -33,6 +33,14 @@ class Cap extends Model
         ][$this->is_approved];
 
     }
+    public function getRatingAttribute()
+    {
+        // get rounded integer rating
+
+        return round($this->avg_rating);
+        
+
+    }
 
 
 

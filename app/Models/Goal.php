@@ -21,6 +21,15 @@ class Goal extends Model
     ];
 
 
+    public function getRatingAttribute()
+    {
+        // get rounded integer rating
+
+        return round($this->avg_rating);
+        
+
+    }
+
     // belongsTo
     public function cap()
     {

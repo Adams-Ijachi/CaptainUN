@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{ $title }}</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ secure_asset('images/favicon.png') }}">
-    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- Custom Stylesheet -->
 
@@ -48,10 +48,10 @@
         <div class="nav-header">
             <div class="brand-logo">
                 <a href="index.html">
-                    <b class="logo-abbr"><img src="{{ secure_asset('images/logo.png') }}" alt=""> </b>
-                    <span class="logo-compact"><img src="{{ secure_asset('images/logo-compact.png') }}" alt=""></span>
+                    <b class="logo-abbr"><img src="{{ asset('images/logo.png') }}" alt=""> </b>
+                    <span class="logo-compact"><img src="{{ asset('images/logo-compact.png') }}" alt=""></span>
                     <span class="brand-title">
-                        <img src="{{ secure_asset('images/logo-text.png') }}" alt="">
+                        <img src="{{ asset('images/logo-text.png') }}" alt="">
                     </span>
                 </a>
             </div>
@@ -134,11 +134,11 @@
 
     @livewireScripts
     
-    <script src="{{ secure_asset('plugins/common/common.min.js') }}"></script>
-    <script src="{{ secure_asset('js/custom.min.js') }}"></script>
-    <script src="{{ secure_asset('js/settings.js') }}"></script>
-    <script src="{{ secure_asset('js/gleek.js') }}"></script>
-    <script src="{{ secure_asset('js/styleSwitcher.js') }}"></script>
+    <script src="{{ asset('plugins/common/common.min.js') }}"></script>
+    <script src="{{ asset('js/custom.min.js') }}"></script>
+    <script src="{{ asset('js/settings.js') }}"></script>
+    <script src="{{ asset('js/gleek.js') }}"></script>
+    <script src="{{ asset('js/styleSwitcher.js') }}"></script>
 
 
     

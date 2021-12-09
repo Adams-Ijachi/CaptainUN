@@ -32,6 +32,16 @@ trait RatingTraits
     }
 
 
+    public function getCapType()
+    {
+        # code...
+        return [
+            '1'=> ['country','Country'],
+            '2' =>     ['company', 'Company']   
+            ];
+    }
+
+
 
     
 }
