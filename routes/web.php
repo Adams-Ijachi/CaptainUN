@@ -6,7 +6,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AUTH\AuthController;
 
 use App\Http\Controllers\ADMIN\AdminController;
-use App\Http\Controllers\home\HomeController;
+
+// use App\Http\Controllers\home\HomeController;
+use App\Http\Controllers\VolunteerController;
+
+
+
 
 
 
@@ -23,10 +28,10 @@ use App\Http\Controllers\home\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class,'index'])->name('home');
-Route::get('/search', [HomeController::class,'search'])->name('search');
-Route::get('/cap/{cap}', [HomeController::class,'getCap'])->name('getCap');
-Route::get('/goal/{goal}', [HomeController::class,'getGoal'])->name('getGoal');
+Route::get('/', [VolunteerController::class,'index'])->name('home');
+Route::get('/search', [VolunteerController::class,'search'])->name('search');
+Route::get('/cap/{cap}', [VolunteerController::class,'getCap'])->name('getCap');
+Route::get('/goal/{goal}', [VolunteerController::class,'getGoal'])->name('getGoal');
 
 
 
