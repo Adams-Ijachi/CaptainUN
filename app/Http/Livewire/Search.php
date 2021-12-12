@@ -31,6 +31,6 @@ class Search extends Component
     {
         $this->searchResults = Cap::where('is_approved', true)->where('type', 'like', '%' . $search . '%')->get();
         
-        Debugbar::info($this->searchResults);
+  
     }
 }

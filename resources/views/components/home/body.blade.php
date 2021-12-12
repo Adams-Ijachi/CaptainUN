@@ -11,7 +11,8 @@
         <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    @else
+    @endenv
+    @env('production')
         <link rel="stylesheet" href="{{ secure_asset('css/font-awesome.min.css') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ secure_asset('images/favicon.png') }}">
         <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
