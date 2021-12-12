@@ -16,7 +16,7 @@
                                         <tbody>
                                 
                                         @if($model_type == 'goal')
-                                            @foreach($models as $index => $data)
+                                            @forelse($models as $index => $data)
 
                                             <tr>
                                             <td> 
@@ -29,9 +29,13 @@
                                             <td>{{ $data->description }}</td>
                                             <td><span class="label gradient-1 btn-rounded">{{ $data->rating }}%</span>
                                             </tr>
-                                            @endforeach
+                                            @empty
+                                            <tr class="text-center h2">
+                                                <td colspan="4">No data</td>
+                                            </tr>
+                                            @endforelse
                                         @elseif($model_type == 'update')
-                                        @foreach($models as $index => $update)
+                                        @forelse($models as $index => $update)
                                          <tr>
                                             <td> 
                                                 {{ $index + 1 }}
@@ -45,7 +49,11 @@
                                             
                                             <td>{{ $update->date_for_humans }}</td>
                                             </tr>
-                                        @endforeach
+                                        @empty
+                                            <tr class="text-center h2">
+                                                <td colspan="4">No data</td>
+                                            </tr>
+                                        @endforelse
                                         @endif
                                                 
                                         </tbody>

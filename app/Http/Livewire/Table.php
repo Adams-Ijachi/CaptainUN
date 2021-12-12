@@ -52,7 +52,7 @@ class Table extends Component
 
         return view('livewire.table', [
             'table_headers' => $this->readyToLoad ?  $this->table_headers : [],
-            'models' => $this->readyToLoad ? $return : [],
+            'models' => $return 
         ]);
     }
 

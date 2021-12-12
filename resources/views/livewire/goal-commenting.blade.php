@@ -35,7 +35,7 @@
 
                 @error('editing.comment') <span class="alert alert-danger">{{ $message }}</span> @enderror
 
-                
+
                 <div>
 
                 @if (session()->has('message'))
@@ -51,13 +51,12 @@
                 </div>
 
 
-
                 @forelse($comments as $comment)
                 <div class="commented-section mt-2 p-2">
                     <div class="d-flex flex-row align-items-center commented-user">
                         <h5 class="mr-2">{{$comment->user->full_name}}</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">{{$comment->date_for_humans}}</span>
                     </div>
-                    <div class="comment-text-sm">
+                    <div class="comment-text-sm m-1">
                         <span>
                             {{$comment->comment}}
                         </span>

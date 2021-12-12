@@ -3,46 +3,47 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+
 use Debugbar;
 use App\Models\{
     Comment,
-    Cap
+    Goal
 };
 use Livewire\WithPagination;
 use Auth;
 use Illuminate\Database\Eloquent\Builder;
 
-
-class Commenting extends Component
+class GoalCommenting extends Component
 {
-
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
     public $is_editing = false;
-    public Cap $cap ;
+    public Goal $goal ;
     public Comment $editing;
 
-
+  
     public function rules()
     {
         return [
             'editing.comment' => 'required|min:3',
         ];
     }
-    
+
+
+
     public function render()
     {
-        return view('livewire.commenting',
+        return view('livewire.goal-commenting',
         [
-            'comments' => Comment::with('user')->whereHasMorph('commentable', Cap::class, function (Builder $query) {
-                $query->where('id', $this->cap->id);
+            'comments' => Comment::with('user')->whereHasMorph('commentable', Goal::class, function (Builder $query) {
+                $query->where('id', $this->goal->id);
             })->latest()->paginate(10),
         ]);
     }
 
-    public function mount($cap){
-        $this->cap = $cap;
+    public function mount($goal){
+        $this->goal = $goal;
         $this->editing = Comment::make();
     }
 
@@ -52,6 +53,9 @@ class Commenting extends Component
         $this->editing = Comment::make();
     }
 
+    
+
+
     public function addComment()
     {
         $this->validate();
@@ -59,7 +63,7 @@ class Commenting extends Component
         if($this->is_editing){
             $this->editing->update();
         }else{
-            $this->editing->commentable()->associate($this->cap);
+            $this->editing->commentable()->associate($this->goal);
             $this->editing->user_id = Auth::id();
             $this->editing->save();
         }
@@ -67,19 +71,7 @@ class Commenting extends Component
         $this->create();
 
 
-        // $this->editing->commentable()->associate($this->cap->id);
-        // $this->editing->user_id = Auth::user()->id;
-        // $this->editing->save();
-        // $this->create();
-
-
-
-        // $comment->comment = $this->comment;
-        // $comment->user_id = Auth::user()->id;
-        // $comment->commentable()->associate($this->cap->id);
-        // $comment->save();
-
-        // $this->comment = '';
+    
     }
 
     public function editComment(Comment $comment)
@@ -88,14 +80,17 @@ class Commenting extends Component
         $this->editing = $comment;
     }
 
-    // deleteComment
+        // deleteComment
     public function deleteComment(Comment $comment)
     {
-      
+        
         $comment->delete();
-       
+        
         
         $this->render();
         session()->flash('message', 'Delete Sucessfull.');
     }
+
+
+
 }
