@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AUTH\AuthController;
 
 use App\Http\Controllers\ADMIN\AdminController;
-use App\Http\Controllers\HOME\HomeController;
+use App\Http\Controllers\home\HomeController;
 
 
 
