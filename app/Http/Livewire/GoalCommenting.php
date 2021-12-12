@@ -59,7 +59,7 @@ class GoalCommenting extends Component
     public function addComment()
     {
         $this->validate();
-        Debugbar::info($this->editing, 'editing');
+      
         if($this->is_editing){
             $this->editing->update();
         }else{
