@@ -32,7 +32,7 @@ class VolunteerController extends Controller
         # code...
         $cap = Cap::find($request['search']);
         
-        Debugbar::info($cap);
+        
 
         return view('cap_detail' , compact('cap'));
     }

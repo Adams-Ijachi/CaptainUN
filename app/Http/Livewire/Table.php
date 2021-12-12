@@ -46,7 +46,7 @@ class Table extends Component
               $return = Update::whereHasMorph('updatable', Cap::class, function (Builder $query) {
                 $query->where('id', $this->model->id);
             })->orderByDesc('created_at')->paginate(10,['*'], 'update'); 
-            Debugbar::info($return);
+        
            
         }
 
