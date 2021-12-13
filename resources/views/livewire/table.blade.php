@@ -1,7 +1,10 @@
 <div class=" mb-2 " wire:init="loadPosts">
-                        <div class="card">
+    <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Caps Goals</h4>
+                                <h4 class="card-title">
+                                    Cap
+                                    {{$model_type}}
+                                </h4>
                                 <div class="table-responsive">
                                     <table class="table header-border table-hover verticle-middle">
                                         <thead>

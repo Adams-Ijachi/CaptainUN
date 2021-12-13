@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Http\Traits\RatingTraits;
 
 
 class Goal extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, RatingTraits;
 
     protected $fillable = [
         'name',
@@ -24,6 +25,8 @@ class Goal extends Model
     public function getRatingAttribute()
     {
         // get rounded integer rating
+        $this->averageRating($this->id);
+
 
         return round($this->avg_rating);
         
@@ -58,6 +61,11 @@ class Goal extends Model
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
     }
 
 

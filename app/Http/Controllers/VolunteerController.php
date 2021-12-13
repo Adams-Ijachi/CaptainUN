@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Traits\RatingTraits;
 
 
 use App\Models\{
@@ -18,12 +19,22 @@ use Debugbar;
 class VolunteerController extends Controller
 {
     //
+    use RatingTraits;
+
     public function index(Request $request)
     {
         # code...
-        $caps_country = Cap::where('is_approved', true)->where('type', 'country')->paginate(5, ['*'], 'country');
-        $caps_company = Cap::where('is_approved', true)->where('type', 'company')->paginate(5, ['*'], 'company');
+        
+
+        $caps_country = Cap::where('is_approved', true)->where('type', 'country')->orderByDesc('avg_rating')->paginate(10, ['*'], 'country');
+        $caps_company = Cap::where('is_approved', true)->where('type', 'company')->orderByDesc('avg_rating')->paginate(10, ['*'], 'company');
         return view('welcome' , compact('caps_country', 'caps_company'));
+    }
+
+    public function about(Request $request)
+    {
+        # code...
+        return view('about');
     }
 
 
@@ -39,13 +50,16 @@ class VolunteerController extends Controller
 
     public function getCap(Cap $cap)
     {
-        
+      
         return view('cap_detail' , compact('cap'));
     }
 
     // getGoal
     public function getGoal(Goal $goal)
     {
+        
+
+
         return view('goal_detail' , compact('goal'));
     }
 }

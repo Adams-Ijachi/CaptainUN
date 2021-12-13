@@ -121,8 +121,7 @@
                 @error('editing.description') <span class="error">{{ $message }}</span> @enderror
 
             </div>
-           
-                       
+                  
             <div class="form-group">
                  <label for="exampleInputPassword1">Type</label>
                 <select class="form-control" wire:model="editing.type" >
@@ -133,6 +132,9 @@
                 @error('editing.type') <span class="error">{{ $message }}</span> @enderror
 
             </div>
+
+            
+
             <div class="form-group">
                  <label for="exampleInputPassword1">Status</label>
                 <select class="form-control" wire:model="editing.is_approved" >

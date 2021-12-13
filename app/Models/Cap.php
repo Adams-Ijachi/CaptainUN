@@ -5,10 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Http\Traits\RatingTraits;
+   
+
 
 class Cap extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes,RatingTraits;
 
     protected $fillables = [
         'name',
@@ -17,6 +20,7 @@ class Cap extends Model
         'user_id',
         'type',
         'avg_rating',
+        'type_name'
     ];
 
 
@@ -36,6 +40,10 @@ class Cap extends Model
     public function getRatingAttribute()
     {
         // get rounded integer rating
+       
+        $this->averageGoal($this->id);
+        // $this->averageRating($goal->id);
+
 
         return round($this->avg_rating);
         

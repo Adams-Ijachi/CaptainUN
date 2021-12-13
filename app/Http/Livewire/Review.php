@@ -3,37 +3,39 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+
+
 use Debugbar;
 use App\Models\{
     Goal,
+    Rating
     
 };
+use App\Http\Traits\RatingTraits;
+
 use Livewire\WithPagination;
 use Auth;
-use Illuminate\Database\Eloquent\Builder;
-
-class Rating extends Component
+class Review extends Component
 {
-    use WithPagination;
+    use WithPagination, RatingTraits;
     protected $paginationTheme = 'bootstrap';
 
     public $is_editing = false;
     public Goal $goal ;
     public Rating $review;
-    public $rating_num = 0;
+    public $rating = 0;
 
 
     public function render()
     {
-        Debugbar::info($this->review);
+      
         $this->getRating();
-       
-        return view('livewire.rating');
+        return view('livewire.review');
     }
 
     public function mount(Goal $goal)
     {
-        $this->review = Review::make();
+        $this->review = Rating::make();
         $this->goal = $goal;
     }
 
@@ -56,21 +58,16 @@ class Rating extends Component
             'rating' => 'required|integer|min:1|max:5',
         ]);
 
+        
+
         $this->goal->ratings()->updateOrCreate([
-            'id'=> $this->review->id,
             'user_id' => Auth::id(),
             'goal_id' => $this->goal->id,
         ], [
             'rating' => $this->rating,
         ]);
-       
 
         $this->rating = 0;
         
     }
-
-
-
-
-    
 }

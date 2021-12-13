@@ -33,7 +33,7 @@
                                   <div class="media">
                                       <span class="card-widget__icon"><i class="icon-star"></i></span>
                                       <div class="media-body">
-                                          <h2 class="card-widget__title">{{ $cap->avg_rating }}</h2>
+                                          <h2 class="card-widget__title">{{ $cap->rating }}</h2>
                                           <h5 class="card-widget__subtitle">Average ratings</h5>
                                       </div>
                                   </div>

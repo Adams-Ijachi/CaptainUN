@@ -26,7 +26,7 @@
                     <li>
                     
                         <a  href="{{ route('admin.cap') }}" aria-expanded="false">
-                            <i class="icon-grid menu-icon"></i> <span class="nav-text">CAPS</span>
+                            <i class="icon-grid menu-icon"></i> <span class="nav-text">Country/Companies</span>
                         </a>
                     </li>
                     <li>

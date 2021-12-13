@@ -27,7 +27,7 @@ class Caps extends Component
     protected function rules ()
     {
         return [
-            'editing.name' => 'required|min:3',
+            'editing.name' => 'required|min:3|unique:caps,name',
             'editing.description' => 'required|string',
             'editing.is_approved' => 'required|boolean',
             'editing.type' => 'required|min:3|string'

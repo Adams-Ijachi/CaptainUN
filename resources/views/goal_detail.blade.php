@@ -33,7 +33,7 @@
                                   <div class="media">
                                       <span class="card-widget__icon"><i class="icon-star"></i></span>
                                       <div class="media-body">
-                                          <h2 class="card-widget__title">{{ $goal->avg_rating }}</h2>
+                                          <h2 class="card-widget__title">{{ $goal->rating }}</h2>
                                           <h5 class="card-widget__subtitle">Average ratings</h5>
                                       </div>
                                   </div>
@@ -69,18 +69,22 @@
                 </h2>
 
                 <div>
-                <div class="rate">
-                    <input type="radio" id="star5" name="rate" value="5" />
-                    <label for="star5" title="text">5 stars</label>
-                    <input type="radio" id="star4" name="rate" value="4" />
-                    <label for="star4" title="text">4 stars</label>
-                    <input type="radio" id="star3" name="rate" value="3" />
-                    <label for="star3" title="text">3 stars</label>
-                    <input type="radio" id="star2" name="rate" value="2" />
-                    <label for="star2" title="text">2 stars</label>
-                    <input type="radio" id="star1" name="rate" value="1"  />
-                    <label for="star1" title="text">1 star</label>
+
+                
+                @unless(Auth::user())
+                    <div class="alert alert-danger">
+                        <p>
+                            You must be logged in to Rate.
+                        </p>
+                    </div>
+                @endunless
+                @auth
+                <div wire:key>
+                <livewire:review  wire:key="1" :goal="$goal" />
+
                 </div>
+                @endauth
+           
                 </div>
             </div>
 
@@ -88,8 +92,9 @@
         </div>
     </div>
 
-        
-            <livewire:goal-commenting :goal="$goal" />
+        <div wire:key  >
+         <livewire:goal-commenting :goal="$goal" wire:key="2" />
+        </div>
 
         </section>
 

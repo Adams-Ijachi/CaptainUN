@@ -13,7 +13,7 @@
     </div>
     <div wire:loading wire:target="addRating">
 
-    Changing Rating...
+    Changing Status...
 
     </div>
     <div>

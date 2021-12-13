@@ -29,6 +29,8 @@ use App\Http\Controllers\VolunteerController;
 */
 
 Route::get('/', [VolunteerController::class,'index'])->name('home');
+Route::get('/about', [VolunteerController::class,'about'])->name('about');
+
 Route::get('/search', [VolunteerController::class,'search'])->name('search');
 Route::get('/cap/{cap}', [VolunteerController::class,'getCap'])->name('getCap');
 Route::get('/goal/{goal}', [VolunteerController::class,'getGoal'])->name('getGoal');
